@@ -4,9 +4,19 @@ import "./Exploler.css";
 import Pic from "./Pic";
 
 const Explore = () => {
-  const [pics, setPics] = useState([1, 2, 3, 4, 5, 6, 7]);
+  const [pics, setPics] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
 
-  const list = pics.map((el) => <Pic picture={el} />);
+  const list2 = (idx) => {
+    const data = [pics[idx - 1], pics[idx]];
+    return (
+      <div className="album">
+        {data.map((el) => (
+          <Pic picture={el} />
+        ))}
+      </div>
+    );
+  };
+  const list = pics.map((el, idx) => (idx % 2 ? list2(idx) : null));
 
   return (
     <div className="container">

@@ -3,7 +3,7 @@
   display: flex;
   left: 0;
   top: 0;
-  width: 100%;
+  width: 100vw;
   height: 80px;
   background-color: aqua;
   align-items: center;

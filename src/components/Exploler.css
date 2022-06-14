@@ -1,6 +1,7 @@
 .container {
-  height: 100%;
+  height: 100vh;
   width: 100%;
+
 }
 
 .desc {
@@ -13,9 +14,12 @@
 }
 
 .pics {
-  display: flex;
+  margin: 0 auto;
+  overflow: hidden;
+  
+  padding-top: 10px;
 
-  width: 100%;
+  width: 800px;
   /* width: 100px;
   height: 100px; */
 }
