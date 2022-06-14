@@ -1,0 +1,21 @@
+.container {
+  height: 100%;
+  width: 100%;
+}
+
+.desc {
+  color: aliceblue;
+  align-items: center;
+  margin-top: 80px;
+  background-color: blueviolet;
+  display: flex;
+  justify-content: center;
+}
+
+.pics {
+  display: flex;
+
+  width: 100%;
+  /* width: 100px;
+  height: 100px; */
+}
