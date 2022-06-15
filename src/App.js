@@ -1,6 +1,4 @@
-import logo from "./logo.svg";
 import "./App.css";
-import Header from "./components/Header";
 import Main from "./components/Main";
 import Create from "./components/Create";
 import Explore from "./components/Explore";

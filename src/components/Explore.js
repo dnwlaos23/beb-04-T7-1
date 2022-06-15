@@ -1,12 +1,33 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import "./Exploler.css";
 import Pic from "./Pic";
+import GetAllNFT from "../Functions/GetAllNFT";
+import axios from "axios";
+
+let allJson = [];
 
 const Explore = () => {
-  const [pics, setPics] = useState([1, 2, 3, 4, 5, 6, 7, 8, 9]);
+  useEffect(() => {
+    GetAllNFT()
+      .then(async (allTokenJsonURL) => {
+        console.log("getting json...");
+        for (let i = 0; i < allTokenJsonURL.length; i++) {
+          const json = await axios.get(allTokenJsonURL[i]);
+          allJson.push(json.data);
+        }
+        console.log(allJson);
+      })
+      .then(() => {
+        setPics(allJson);
+        allJson = [];
+      });
+  }, []);
+  const [pics, setPics] = useState([]);
 
-  const list = pics.map((el, idx) => <Pic key={idx} picture={el} />);
+  const list = pics.map((el, idx) => (
+    <Pic key={idx} title={el.name} desc={el.desc} src={el.image} />
+  ));
 
   return (
     <div className="container">

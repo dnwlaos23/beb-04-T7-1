@@ -1,5 +1,6 @@
 import Web3 from "web3";
 import abi from "../components/abi";
+import ContractAddr from "../components/ContractAddr";
 
 const Mint = async (jsonUrl) => {
   //   console.log(abi);
@@ -12,19 +13,14 @@ const Mint = async (jsonUrl) => {
       // 평균 가스비를 계산하는 함수
       const gasPrice = await web3.eth.getGasPrice();
       // 컨트랙트 객체를 만들어 method에 연결할 수 있게 해준다.
-      const myContract = new web3.eth.Contract(
-        abi,
-        "0x4A02c3b68bcb85F61C80a341579CE252080a02cD"
-      );
+      const myContract = new web3.eth.Contract(abi, ContractAddr);
       console.log(jsonUrl);
       // Contract의 mintNFT 함수에 계정 정보와 ipfs json url를 인자값으로 제공하여 함수 실행
-      const tx = await myContract.methods
-        .mintNFT(account.toString(), jsonUrl)
-        .send({
-          from: account.toString(),
-          gas: 2000000,
-          gasPrice,
-        });
+      const tx = await myContract.methods.mintNFT(jsonUrl).send({
+        from: account.toString(),
+        gas: 2000000,
+        gasPrice,
+      });
       console.log(tx);
     } catch (error) {
       console.log(error);

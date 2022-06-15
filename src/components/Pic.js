@@ -1,10 +1,10 @@
 import React from "react";
 import "./Pic.css";
 
-const Pic = ({ picture }) => {
+const Pic = ({ title, desc, src }) => {
   return (
-    <div className="pic">
-      <h1>{picture}</h1>
+    <div className="pic" style={{ borderRadius: "14px", overflow: "hidden" }}>
+      <img src={src} alt="test" style={{ width: "300px", height: "300px" }} />
     </div>
   );
 };

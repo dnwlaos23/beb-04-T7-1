@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Header from "./Header";
 import Web3 from "web3";
 import "./MyPage.css";
@@ -7,13 +6,32 @@ import Pic from "./Pic";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { faEthereum } from "@fortawesome/free-brands-svg-icons";
+import GetMyNFT from "../Functions/GetMyNFT";
+import axios from "axios";
+
+let myTokenList = [];
 
 const MyPage = () => {
-  const [pics, setPics] = useState([
-    1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14,
-  ]);
+  useEffect(() => {
+    GetMyNFT()
+      .then(async (myTokenJsonURL) => {
+        for (let i = 0; i < myTokenJsonURL.length; i++) {
+          const myTokenJson = await axios.get(myTokenJsonURL[i]);
+          myTokenList.push(myTokenJson.data);
+        }
+        console.log({ myTokenList });
+      })
+      .then(() => {
+        setPics(myTokenList);
+        myTokenList = [];
+      });
+  }, []);
 
-  const list = pics.map((el) => <Pic picture={el} />);
+  const [pics, setPics] = useState([]);
+
+  const list = pics.map((el, idx) => (
+    <Pic key={idx} name={el.title} desc={el.description} src={el.image} />
+  ));
 
   const [account, setAccount] = useState("");
 
