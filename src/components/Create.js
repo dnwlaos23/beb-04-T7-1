@@ -1,12 +1,8 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import "./Create.css";
-import { create } from "ipfs-http-client";
-import abi from "./abi";
-import Web3 from "web3";
-import * as IPFS from "ipfs-core";
-
-const client = create("https://ipfs.infura.io:5001/api/v0");
+import SendImgIPFS from "../Functions/SendImgIPFS";
+import Mint from "../Functions/Mint";
 
 const Create = () => {
   const [image, setImage] = useState("");
@@ -14,52 +10,6 @@ const Create = () => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   // const [jsonUrl, setJsonUrl] = useState("");
-
-  async function sendImgIPFS() {
-    try {
-      const imgAdded = await client.add(image);
-      const imgUrl = `ipfs.infura.io/ipfs/${imgAdded.path}`;
-      console.log({ imgUrl });
-      const json = JSON.stringify({
-        description: `${desc}`,
-        image: `${imgUrl}`,
-        name: `${title}`,
-      });
-      console.log({ json });
-      const jsonAdded = await client.add(json);
-      const jUrl = `ipfs.infura.io/ipfs/${jsonAdded.path}`;
-      console.log({ jUrl });
-      return jUrl;
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
-  const mint = async (jsonUrl) => {
-    console.log(abi);
-    if (window.ethereum) {
-      const web3 = new Web3(window.ethereum);
-      try {
-        const account = await web3.eth.getAccounts();
-        const gasPrice = await web3.eth.getGasPrice();
-        const myContract = new web3.eth.Contract(
-          abi,
-          "0x4A02c3b68bcb85F61C80a341579CE252080a02cD"
-        );
-        console.log(jsonUrl);
-        const tx = await myContract.methods
-          .mintNFT(account.toString(), jsonUrl)
-          .send({
-            from: account.toString(),
-            gas: 2000000,
-            gasPrice,
-          });
-        console.log(tx);
-      } catch (error) {
-        console.log(error);
-      }
-    }
-  };
 
   return (
     <div className="container">
@@ -75,11 +25,17 @@ const Create = () => {
               type="file"
               className="file"
               onChange={(e) => {
+                // 미리보기를 만들어주는 함수, 내장모듈인 FileReader를 사용했다.
                 if (!e.target.files[0]) return;
+                // input type data에서 받아온 파일이 담긴 위치이다. 이를 먼저 useState에 있는 image 변수에 담아준다.
                 setImage(e.target.files[0]);
+                // FileReader 모듈을 사용하기 위한 객체 선언
                 const reader = new FileReader();
+                // FileReader 모듈 함수 중 하나인 readAsDataURL을 실행하여 가져온 파일을 읽어준다.
                 reader.readAsDataURL(e.target.files[0]);
+                // onload는 비동기함수이다. 위에서 선언한 readAsDataURL이 끝나면 자동으로 실행된다.
                 reader.onload = () => {
+                  // useState의 preview 변수에 읽은 파일을 담아주고, 이를 아래 div backgroundImage의 url로 삽입하여 화면에 렌더링해준다.
                   setPreview(reader.result);
                 };
               }}
@@ -113,7 +69,9 @@ const Create = () => {
               type="button"
               value="Make it!"
               style={{ fontSize: "25px", borderRadius: "10px" }}
-              onClick={() => sendImgIPFS().then((jsonUrl) => mint(jsonUrl))}
+              onClick={() =>
+                SendImgIPFS(image, desc, title).then((jsonUrl) => Mint(jsonUrl))
+              }
             />
           </div>
         </div>
