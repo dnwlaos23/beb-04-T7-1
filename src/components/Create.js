@@ -14,10 +14,7 @@ const Create = () => {
   return (
     <div className="container">
       <Header />
-      <div
-        className="desc"
-        style={{ backgroundColor: "#98fb98", color: "black" }}
-      >
+      <div className="desc" style={{ color: "black", marginTop: "3px" }}>
         <h1>Create your own NFT!</h1>
       </div>
       <div className="half">
