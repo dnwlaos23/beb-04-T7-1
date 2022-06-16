@@ -5,7 +5,7 @@ import Pic from "./Pic";
 import GetAllNFT from "../Functions/GetAllNFT";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass } from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass ,faSearch} from "@fortawesome/free-solid-svg-icons";
 
 let allJson = [];
 
@@ -29,7 +29,6 @@ const Explore = () => {
       .then(() => setIsLoading(false));
   }, []);
   const [pics, setPics] = useState([]);
-  const [searching, isSearching] = useState(false);
   const [searchingValue, setSearchingValue] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -53,13 +52,6 @@ const Explore = () => {
       <Header />
       <div className="desc">
         <h1>It's our Collection!</h1>
-        <FontAwesomeIcon
-          icon={faMagnifyingGlass}
-          className="logo"
-          size="2x"
-          onClick={() => isSearching(!searching)}
-          style={{ cursor: "pointer" }}
-        />
       </div>
       <div
         style={{
@@ -68,30 +60,23 @@ const Explore = () => {
           justifyContent: "center",
         }}
       >
-        {searching ? (
-          <div
-            style={{
-              height: "40px",
-              width: "300px",
-              backgroundColor: "white",
-              overflow: "hidden",
-            }}
-          >
+        
+          <div className="searchWrap">
+            <div className="search">
             <input
-              style={{
-                height: "40px",
-                width: "300px",
-                backgroundColor: "white",
-                border: "hidden",
-              }}
+              placeholder="whar are you looking for?"
+              className="searchTerm"
               type="text"
               value={searchingValue}
               onChange={async (e) => {
                 setSearchingValue(e.target.value);
               }}
             />
+            <button type="submit" className="searchButton">
+                    <FontAwesomeIcon icon={faSearch} />
+                </button>
+            </div>
           </div>
-        ) : null}
       </div>
       {isLoading ? (
         <div>
