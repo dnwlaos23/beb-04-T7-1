@@ -52,8 +52,8 @@ const Explore = () => {
   return (
     <div className="container">
       <Header />
-      <div className="desc" style={{ color: "black" }}>
-        <h1>It's our Collection!</h1>
+      <div className="desc" >
+        <h1 >It's our Collection!</h1>
       </div>
       <div
         style={{
