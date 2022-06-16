@@ -68,11 +68,11 @@
 }
 
 .desc {
-  color: aliceblue;
+  color: blueviolet;
   align-items: center;
   width: 100vw;
   margin-top: 80px;
-  background-color: blueviolet;
+  background-color: 00ffa3;
   display: flex;
   justify-content: center;
 }
