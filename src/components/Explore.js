@@ -92,7 +92,7 @@ const Explore = () => {
             Now Loading...
           </h1>
           <h2>가속화</h2>
-          <div></div>
+          <div style={{width : '100px', height : }}></div>
         </div>
       ) : (
         <div className="pics">{list}</div>
