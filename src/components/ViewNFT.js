@@ -41,6 +41,27 @@ const ViewNFT = () => {
     getNFT().then((result) => setTransfer(result));
   }, []);
 
+  const sendNFT = async () => {
+    if (window.ethereum) {
+      const web3 = new Web3(window.ethereum);
+      try {
+        const myContract = new web3.eth.Contract(abi, ContractAddr);
+        const gasPrice = await web3.eth.getGasPrice();
+        const account = await web3.eth.getAccounts();
+        const result = await myContract.methods
+          .safeTransferFrom(account[0], address, id)
+          .send({
+            from: account[0],
+            gas: 2000000,
+            gasPrice: gasPrice,
+          });
+        return result;
+      } catch (error) {
+        console.log(error);
+      }
+    }
+  };
+
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [src, setSrc] = useState("");
@@ -52,7 +73,11 @@ const ViewNFT = () => {
     <div className="container">
       <Header />
       <div className="image">
-        <img src={src} style={{ width: "400px", height: "400px" }} alt="NFT" />
+        <img
+          src={src}
+          style={{ width: "400px", height: "400px", borderRadius: "13px" }}
+          alt="NFT"
+        />
         <div>
           <div style={{ width: "400px" }}>
             <div className="title">
@@ -112,6 +137,15 @@ const ViewNFT = () => {
                       cursor: "pointer",
                       marginTop: "30px",
                     }}
+                    onClick={() =>
+                      sendNFT().then((result) => {
+                        if (result.status === true) {
+                          alert("Transfer Success!");
+                        } else {
+                          alert("Trasnfer Failed ㅠㅠ");
+                        }
+                      })
+                    }
                   >
                     <h2>Send!</h2>
                   </div>

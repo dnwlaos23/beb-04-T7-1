@@ -13,10 +13,12 @@ const Explore = () => {
   useEffect(() => {
     allJson = [];
     GetAllNFT()
-      .then(async (allTokenJsonURL) => {
+      .then(async (result) => {
         console.log("getting json...");
+        const { allTokenId, allTokenJsonURL } = result;
         for (let i = 0; i < allTokenJsonURL.length; i++) {
           const json = await axios.get(allTokenJsonURL[i]);
+          json.data.id = allTokenId[i];
           allJson.push(json.data);
         }
         console.log(allJson);
@@ -33,7 +35,7 @@ const Explore = () => {
     searchingValue === ""
       ? allJson
       : pics.filter((pic) =>
-          [pic.name, pic.description].some((text) =>
+          [pic.name.toLowerCase(), pic.description.toLowerCase()].some((text) =>
             text.includes(searchingValue)
           )
         );
@@ -41,13 +43,7 @@ const Explore = () => {
   // filtered();
 
   const list = filtered.map((el, idx) => (
-    <Pic
-      key={idx}
-      title={el.name}
-      desc={el.desc}
-      src={el.image}
-      idx={idx + 1}
-    />
+    <Pic key={idx} title={el.name} desc={el.desc} src={el.image} idx={el.id} />
   ));
 
   return (
@@ -60,6 +56,7 @@ const Explore = () => {
           className="logo"
           size="2x"
           onClick={() => isSearching(!searching)}
+          style={{ cursor: "pointer" }}
         />
       </div>
       <div
