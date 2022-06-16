@@ -26,8 +26,9 @@ const MyPage = () => {
       .then(() => {
         setPics(myTokenList);
         myTokenList = [];
+        console.log("now loading")
       })
-      .then(setIsLoading(false));
+      .then(() => setIsLoading(false));
   }, []);
 
   const [pics, setPics] = useState([]);
@@ -83,7 +84,25 @@ const MyPage = () => {
         </h4>
       </div>
       <h3>Collected</h3>
-      <div className="pics">{list}</div>
+      {isLoading ? (
+        <div>
+          <h1
+            style={{
+              width: "100vw",
+              height: "30vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            Now Loading...
+          </h1>
+          <h2>가속화</h2>
+          <div style={{width : '100px', height : '65px'}}></div>
+        </div>
+      ) : (
+        <div className="pics">{list}</div>
+      )}
     </div>
   );
 };
