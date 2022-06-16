@@ -27,7 +27,7 @@ const Header = () => {
     <div className="header">
       <div>
         <div>
-          <NavLink to="/" className="NavLink">
+          <NavLink to="/" className="logoWrapper">
           <h2>
             <FontAwesomeIcon icon={faSolarPanel} className="logo" /> T-7 NFT Market
           </h2>
