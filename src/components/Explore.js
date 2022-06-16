@@ -5,7 +5,7 @@ import Pic from "./Pic";
 import GetAllNFT from "../Functions/GetAllNFT";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass ,faSearch} from "@fortawesome/free-solid-svg-icons";
+import { faMagnifyingGlass, faSearch } from "@fortawesome/free-solid-svg-icons";
 
 let allJson = [];
 
@@ -31,6 +31,7 @@ const Explore = () => {
   const [pics, setPics] = useState([]);
   const [searchingValue, setSearchingValue] = useState("");
   const [isLoading, setIsLoading] = useState(true);
+  const [warning, setWarning] = useState(false);
 
   const filtered =
     searchingValue === ""
@@ -60,9 +61,8 @@ const Explore = () => {
           justifyContent: "center",
         }}
       >
-        
-          <div className="searchWrap">
-            <div className="search">
+        <div className="searchWrap">
+          <div className="search">
             <input
               placeholder="whar are you looking for?"
               className="searchTerm"
@@ -73,26 +73,48 @@ const Explore = () => {
               }}
             />
             <button type="submit" className="searchButton">
-                    <FontAwesomeIcon icon={faSearch} />
-                </button>
-            </div>
+              <FontAwesomeIcon icon={faSearch} />
+            </button>
           </div>
+        </div>
       </div>
       {isLoading ? (
         <div>
-          <h1
-            style={{
-              width: "100vw",
-              height: "30vh",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            Now Loading...
-          </h1>
-          <h2>가속화</h2>
-          <div style={{width : '100px', height : }}></div>
+          {warning ? (
+            <div style={{ width: "100vw", height: "40vh" }}>
+              <h1>소용 없습니다.</h1>
+            </div>
+          ) : (
+            <div
+              style={{
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "center",
+                height: "30vh",
+              }}
+            >
+              <h1>Now Loading...</h1>
+              <div
+                style={{
+                  width: "100px",
+                  height: "60px",
+                  backgroundColor: "pink",
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  cursor: "pointer",
+                  borderRadius: "25px",
+                  marginLeft: "20px",
+                }}
+                onClick={() => {
+                  setWarning(true);
+                }}
+              >
+                <h2>가속화</h2>
+              </div>
+            </div>
+          )}
         </div>
       ) : (
         <div className="pics">{list}</div>
