@@ -25,11 +25,13 @@ const Explore = () => {
       })
       .then(() => {
         setPics(allJson);
-      });
+      })
+      .then(() => setIsLoading(false));
   }, []);
   const [pics, setPics] = useState([]);
   const [searching, isSearching] = useState(false);
   const [searchingValue, setSearchingValue] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const filtered =
     searchingValue === ""
@@ -91,7 +93,25 @@ const Explore = () => {
           </div>
         ) : null}
       </div>
-      <div className="pics">{list}</div>
+      {isLoading ? (
+        <div>
+          <h1
+            style={{
+              width: "100vw",
+              height: "30vh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            Now Loading...
+          </h1>
+          <h2>가속화</h2>
+          <div></div>
+        </div>
+      ) : (
+        <div className="pics">{list}</div>
+      )}
     </div>
   );
 };

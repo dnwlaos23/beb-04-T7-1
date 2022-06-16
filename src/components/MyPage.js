@@ -26,10 +26,13 @@ const MyPage = () => {
       .then(() => {
         setPics(myTokenList);
         myTokenList = [];
-      });
+      })
+      .then(setIsLoading(false));
   }, []);
 
   const [pics, setPics] = useState([]);
+  const [account, setAccount] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   const list = pics.map((el, idx) => (
     <Pic
@@ -40,8 +43,6 @@ const MyPage = () => {
       idx={el.id}
     />
   ));
-
-  const [account, setAccount] = useState("");
 
   const initWeb3 = async () => {
     if (window.ethereum) {
@@ -81,10 +82,7 @@ const MyPage = () => {
           )}
         </h4>
       </div>
-      <div className="tap">
-        <h3>Collected</h3>
-      </div>
-
+      <h3>Collected</h3>
       <div className="pics">{list}</div>
     </div>
   );
