@@ -14,7 +14,10 @@ const Create = () => {
   return (
     <div className="container">
       <Header />
-      <div className="desc">
+      <div
+        className="desc"
+        style={{ backgroundColor: "#98fb98", color: "black" }}
+      >
         <h1>Create your own NFT!</h1>
       </div>
       <div className="half">
@@ -65,7 +68,8 @@ const Create = () => {
               className="preview"
               style={{ backgroundImage: `url(${preview})` }}
             />
-            <input className="Makeit"
+            <input
+              className="Makeit"
               type="button"
               value="Make it!"
               style={{ fontSize: "25px", borderRadius: "10px" }}

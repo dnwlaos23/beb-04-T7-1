@@ -17,7 +17,7 @@
   display: flex;
   /* width: 100%; */
   border-radius: 17px;
-  border-color: black;
+  /* border-color: black; */
   border: 3px;
   margin: 40px;
   background-size: contain;
@@ -34,13 +34,13 @@
   width: 50%;
   float: left;
   box-sizing: border-box;
-  background: #8977ad;
+  /* background: #8977ad; */
 }
 .right {
   width: 50%;
   float: right;
   box-sizing: border-box;
-  background: #ece6cc;
+  /* background: #ece6cc; */
   display: flex;
   /* align-items: center; */
   justify-content: center;

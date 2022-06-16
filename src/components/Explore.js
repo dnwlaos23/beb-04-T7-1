@@ -52,7 +52,10 @@ const Explore = () => {
   return (
     <div className="container">
       <Header />
-      <div className="desc">
+      <div
+        className="desc"
+        style={{ backgroundColor: "#98fb98", color: "black" }}
+      >
         <h1>It's our Collection!</h1>
       </div>
       <div
@@ -81,60 +84,52 @@ const Explore = () => {
       </div>
       {isLoading ? (
         <div>
-        <div className="loadingContainer">
-          {warning ? (
-            <div style={{ width: "100vw", height: "40vh" }}>
-              <h1>소용 없습니다.</h1>
-              <FadeLoader
-                  color="#C63DEE"
-                  radius={2}
-                />
-            </div>
-          ) : (
-            <div
-              style={{
-                top: "30%",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                height: "30vh",
-              }}
-            >
-                <div className="loader"
-                  style={{
-                  transform: "translate(-50%, -50%)"
-                }}
-              >
-                <FadeLoader
-                  color="#C63DEE"
-                  radius={2}
-                />
+          <div className="loadingContainer">
+            {warning ? (
+              <div style={{ width: "100vw", height: "40vh" }}>
+                <h1>소용 없습니다.</h1>
+                <FadeLoader color="#C63DEE" radius={2} />
               </div>
-              
-            
-            </div>
-            
-          )}
-          </div>
-        <div className="contentWrap">
-        <div
+            ) : (
+              <div
                 style={{
-                  width: "100px",
-                  height: "60px",
-                  backgroundColor: "pink",
+                  top: "30%",
+                  display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
-                  overflow: "hidden",
-                  cursor: "pointer",
-                  borderRadius: "25px",
-                }}
-                onClick={() => {
-                  setWarning(true);
+                  height: "30vh",
                 }}
               >
-                <h2>가속화</h2>
+                <div
+                  className="loader"
+                  style={{
+                    transform: "translate(-50%, -50%)",
+                  }}
+                >
+                  <FadeLoader color="#C63DEE" radius={2} />
+                </div>
               </div>
+            )}
+          </div>
+          <div className="contentWrap">
+            <div
+              style={{
+                width: "100px",
+                height: "60px",
+                backgroundColor: "pink",
+                alignItems: "center",
+                justifyContent: "center",
+                overflow: "hidden",
+                cursor: "pointer",
+                borderRadius: "25px",
+              }}
+              onClick={() => {
+                setWarning(true);
+              }}
+            >
+              <h2>가속화</h2>
             </div>
+          </div>
         </div>
       ) : (
         <div className="pics">{list}</div>

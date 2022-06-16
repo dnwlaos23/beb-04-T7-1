@@ -11,8 +11,8 @@
 }
 
 .contentWrap {
-  display :flex;
-  position:abosolute;
+  display: flex;
+  position: abosolute;
   width: "100px";
   height: "60px";
   align-items: center;
@@ -53,15 +53,15 @@
   overflow: auto;
 }
 
-.loadingContainer{
-  display :flex;
+.loadingContainer {
+  display: flex;
   flex-direction: column;
 }
 
 .loader {
-  position:abosolute;
-  left:50%;
-  transform:translateX(-50%);
+  position: abosolute;
+  left: 50%;
+  transform: translateX(-50%);
   justify-content: center;
   align-items: center;
   margin: 0 auto;
@@ -71,7 +71,7 @@
   color: aliceblue;
   align-items: center;
   width: 100vw;
-  margin-top: 80px;
+  /* margin-top: 80px; */
   background-color: blueviolet;
   display: flex;
   justify-content: center;

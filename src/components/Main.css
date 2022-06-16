@@ -1,15 +1,16 @@
 .Main {
-  width: 430px;
-  height: 130px;
+  width: 100vw;
+  height: 100vh;
   border-radius: 12px;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  /* justify-content: center; */
 }
 
 .connect {
-  width: 100%;
+  width: 430px;
   color: black;
   background: white;
   height: 80px;
