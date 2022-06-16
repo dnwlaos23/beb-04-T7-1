@@ -97,8 +97,6 @@ const MyPage = () => {
                   radius={2}
                 />
               </div>
-          <h2><br/><br/><br/>가속화</h2>
-          <div style={{width : '100px', height : '65px'}}></div>
         </div>
       ) : (
         <div className="pics">{list}</div>
