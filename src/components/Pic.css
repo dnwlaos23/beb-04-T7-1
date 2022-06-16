@@ -6,9 +6,16 @@
   margin-left: 20px;
   margin-bottom: 10px;
   align-items: center;
-  
+
   border: 2px solid teal;
   
+}
+.pic img{
+  transition: all 0.2s linear;
+  overflow: hidden;
+}
+.pic:hover img{
+  transform: scale(1.2);
 }
 
 .pic2{
