@@ -64,7 +64,7 @@ const Explore = () => {
           <div className="searchWrap">
             <div className="search">
             <input
-              placeholder="whar are you looking for?"
+              placeholder="what are you looking for?"
               className="searchTerm"
               type="text"
               value={searchingValue}
@@ -92,7 +92,7 @@ const Explore = () => {
             Now Loading...
           </h1>
           <h2>가속화</h2>
-          <div style={{width : '100px', height : }}></div>
+          <div style={{width : '100px', height : 60}}></div>
         </div>
       ) : (
         <div className="pics">{list}</div>

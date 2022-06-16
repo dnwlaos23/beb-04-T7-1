@@ -27,7 +27,7 @@ const MyPage = () => {
         setPics(myTokenList);
         myTokenList = [];
       })
-      .then(setIsLoading(false));
+      .then(() => setIsLoading(false));
   }, []);
 
   const [pics, setPics] = useState([]);
