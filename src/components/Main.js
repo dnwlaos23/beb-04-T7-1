@@ -8,11 +8,8 @@ const Main = () => {
   const connect = async () => {
     if (window.ethereum) {
       const web3 = new Web3(window.ethereum);
-      const ethereum = window.ethereum;
       try {
-        const accounts = await ethereum.request({
-          method: "eth_requestAccounts",
-        });
+        const accounts = await web3.eth.requestAccounts();
         console.log(accounts);
       } catch (error) {
         console.log(error);

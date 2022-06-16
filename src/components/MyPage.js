@@ -30,7 +30,13 @@ const MyPage = () => {
   const [pics, setPics] = useState([]);
 
   const list = pics.map((el, idx) => (
-    <Pic key={idx} name={el.title} desc={el.description} src={el.image} />
+    <Pic
+      key={idx}
+      name={el.title}
+      desc={el.description}
+      src={el.image}
+      idx={idx}
+    />
   ));
 
   const [account, setAccount] = useState("");
@@ -74,7 +80,7 @@ const MyPage = () => {
         </h4>
       </div>
       <div className="tap">
-        <h3>Colleted</h3>
+        <h3>Collected</h3>
       </div>
 
       <div className="pics">{list}</div>
