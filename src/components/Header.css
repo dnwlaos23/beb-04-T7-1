@@ -46,3 +46,11 @@
   align-items: center;
   justify-content: center;
 }
+
+.NavLink:hover {
+  font-weight: bold;  
+}
+.wallet:hover {
+  transform: scale(1.2);
+
+}

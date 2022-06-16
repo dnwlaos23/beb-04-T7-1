@@ -15,5 +15,11 @@
   padding: 0.5rem 0.5;
   border: 1px solid teal;
   border-radius: 1rem;
+  transition: all 0.1s linear;
+}
+
+.connect:hover {
+  transform: scale(1.2);
+
 }
 

@@ -129,7 +129,7 @@ const ViewNFT = () => {
                       onChange={(e) => setAddress(e.target.value)}
                     />
                   </div>
-                  <div
+                  <div className="send"
                     style={{
                       backgroundColor: "pink",
                       width: "100px",
@@ -157,8 +157,9 @@ const ViewNFT = () => {
                   </div>
                 </div>
               ) : null}
+              </div>
 
-            </div>
+            
           ) : null}
         </div>
       </div>

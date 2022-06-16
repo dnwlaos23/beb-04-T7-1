@@ -44,14 +44,14 @@ const Header = () => {
               <li>Create</li>
             </NavLink>
             <NavLink to="/mypage" className="NavLink">
-              <li>My Page</li>
+              <li>MyPage</li>
             </NavLink>
             <div
               style={{ cursor: "pointer", marginRight: "30px" }}
               onClick={() => checkAccount()}
             >
               <li>
-                <FontAwesomeIcon icon={faWallet} size="3x" color="orange" />
+                <FontAwesomeIcon className="wallet" icon={faWallet} size="3x" color="orange" />
               </li>
             </div>
           </ul>

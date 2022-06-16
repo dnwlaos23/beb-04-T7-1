@@ -65,7 +65,7 @@ const Create = () => {
               className="preview"
               style={{ backgroundImage: `url(${preview})` }}
             />
-            <input
+            <input className="Makeit"
               type="button"
               value="Make it!"
               style={{ fontSize: "25px", borderRadius: "10px" }}

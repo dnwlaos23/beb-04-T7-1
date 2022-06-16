@@ -14,3 +14,7 @@
 .title {
     margin-left: 30px;
 }
+
+.send:hover {
+    transform: scale(1.2);
+}
