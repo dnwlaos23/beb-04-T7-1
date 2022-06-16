@@ -1,10 +1,12 @@
-import React from "react";
+import React from 'react';
 import "./Main.css";
 import Web3 from "web3";
 import { NavLink } from "react-router-dom";
 import Header from "./Header";
 
 const Main = () => {
+  
+
   const connect = async () => {
     if (window.ethereum) {
       const web3 = new Web3(window.ethereum);

@@ -8,6 +8,7 @@ import { faCircleUser } from "@fortawesome/free-solid-svg-icons";
 import { faEthereum } from "@fortawesome/free-brands-svg-icons";
 import GetMyNFT from "../Functions/GetMyNFT";
 import axios from "axios";
+import FadeLoader from "react-spinners/FadeLoader";
 
 let myTokenList = [];
 
@@ -85,19 +86,18 @@ const MyPage = () => {
       </div>
       <h3>Collected</h3>
       {isLoading ? (
-        <div>
-          <h1
-            style={{
-              width: "100vw",
-              height: "30vh",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            Now Loading...
-          </h1>
-          <h2>가속화</h2>
+        <div className="loadingContainer">
+            <div className="loader"
+                  style={{
+                  transform: "translate(-50%, -50%)"
+                }}
+              >
+                <FadeLoader
+                  color="#C63DEE"
+                  radius={2}
+                />
+              </div>
+          <h2><br/><br/><br/>가속화</h2>
           <div style={{width : '100px', height : '65px'}}></div>
         </div>
       ) : (

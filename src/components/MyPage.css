@@ -13,7 +13,12 @@
     align-items: left;
     text-align: left;
   }
-
+  
+  .loadingContainer{
+    display :flex;
+    flex-direction: column;
+  }
+  
 .name {
     margin-left: 50px;
     width: 100vw;

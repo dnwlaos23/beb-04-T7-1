@@ -6,6 +6,7 @@ import GetAllNFT from "../Functions/GetAllNFT";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faMagnifyingGlass, faSearch } from "@fortawesome/free-solid-svg-icons";
+import FadeLoader from "react-spinners/FadeLoader";
 
 let allJson = [];
 
@@ -80,7 +81,7 @@ const Explore = () => {
       </div>
       {isLoading ? (
         <div>
-
+        <div className="loadingContainer">
           {warning ? (
             <div style={{ width: "100vw", height: "40vh" }}>
               <h1>소용 없습니다.</h1>
@@ -88,25 +89,40 @@ const Explore = () => {
           ) : (
             <div
               style={{
+                top: "30%",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
                 height: "30vh",
               }}
             >
-              <h1>Now Loading...</h1>
-              <div
+                <div className="loader"
+                  style={{
+                  transform: "translate(-50%, -50%)"
+                }}
+              >
+                <FadeLoader
+                  color="#C63DEE"
+                  radius={2}
+                />
+              </div>
+              
+            
+            </div>
+            
+          )}
+          </div>
+        <div className="contentWrap">
+        <div
                 style={{
                   width: "100px",
                   height: "60px",
                   backgroundColor: "pink",
-                  display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
                   overflow: "hidden",
                   cursor: "pointer",
                   borderRadius: "25px",
-                  marginLeft: "20px",
                 }}
                 onClick={() => {
                   setWarning(true);
@@ -115,8 +131,6 @@ const Explore = () => {
                 <h2>가속화</h2>
               </div>
             </div>
-          )}
-
         </div>
       ) : (
         <div className="pics">{list}</div>

@@ -10,6 +10,16 @@
   display: flex;
 }
 
+.contentWrap {
+  display :flex;
+  position:abosolute;
+  width: "100px";
+  height: "60px";
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+}
+
 .searchTerm {
   width: 100%;
   border: 3px solid #00b4cc;
@@ -41,6 +51,20 @@
   height: 100vh;
   width: 100vw;
   overflow: auto;
+}
+
+.loadingContainer{
+  display :flex;
+  flex-direction: column;
+}
+
+.loader {
+  position:abosolute;
+  left:50%;
+  transform:translateX(-50%);
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
 }
 
 .desc {
