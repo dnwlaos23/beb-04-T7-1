@@ -21,7 +21,7 @@ async function GetMyNFT() {
         const token = await myContract.methods.tokenURI(myTokenId[i]).call();
         myTokens.push(token);
       }
-      return myTokens;
+      return { myTokens, myTokenId };
     } catch (error) {
       console.log(error);
     }

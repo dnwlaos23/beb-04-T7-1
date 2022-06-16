@@ -14,9 +14,11 @@ let myTokenList = [];
 const MyPage = () => {
   useEffect(() => {
     GetMyNFT()
-      .then(async (myTokenJsonURL) => {
-        for (let i = 0; i < myTokenJsonURL.length; i++) {
-          const myTokenJson = await axios.get(myTokenJsonURL[i]);
+      .then(async (result) => {
+        const { myTokens, myTokenId } = result;
+        for (let i = 0; i < myTokens.length; i++) {
+          let myTokenJson = await axios.get(myTokens[i]);
+          myTokenJson.data.id = myTokenId[i];
           myTokenList.push(myTokenJson.data);
         }
         console.log({ myTokenList });
@@ -35,7 +37,7 @@ const MyPage = () => {
       name={el.title}
       desc={el.description}
       src={el.image}
-      idx={idx}
+      idx={el.id}
     />
   ));
 
