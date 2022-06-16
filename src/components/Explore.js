@@ -85,6 +85,10 @@ const Explore = () => {
           {warning ? (
             <div style={{ width: "100vw", height: "40vh" }}>
               <h1>소용 없습니다.</h1>
+              <FadeLoader
+                  color="#C63DEE"
+                  radius={2}
+                />
             </div>
           ) : (
             <div
