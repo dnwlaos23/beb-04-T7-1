@@ -27,10 +27,11 @@ const Header = () => {
     <div className="header">
       <div>
         <div>
+          <NavLink to="/" className="NavLink">
           <h2>
-            <FontAwesomeIcon icon={faSolarPanel} className="logo" /> T-7 NFT
-            Market
+            <FontAwesomeIcon icon={faSolarPanel} className="logo" /> T-7 NFT Market
           </h2>
+          </NavLink>
         </div>
       </div>
       <nav>

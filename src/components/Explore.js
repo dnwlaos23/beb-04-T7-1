@@ -41,7 +41,13 @@ const Explore = () => {
   // filtered();
 
   const list = filtered.map((el, idx) => (
-    <Pic key={idx} title={el.name} desc={el.desc} src={el.image} idx={idx} />
+    <Pic
+      key={idx}
+      title={el.name}
+      desc={el.desc}
+      src={el.image}
+      idx={idx + 1}
+    />
   ));
 
   return (

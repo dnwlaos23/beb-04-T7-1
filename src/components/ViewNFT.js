@@ -22,10 +22,10 @@ const ViewNFT = () => {
           const result = await myContract.methods.tokenURI(id).call();
           console.log({ result });
           axios.get(result).then((result) => {
-            const { name, image, decription } = result.data;
+            const { name, image, description } = result.data;
             setTitle(name);
             setSrc(image);
-            setDesc(decription);
+            setDesc(description);
           });
         } catch (error) {
           console.log(error);
@@ -38,17 +38,35 @@ const ViewNFT = () => {
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [src, setSrc] = useState("");
+  const [transfer, setTransfer] = useState(false);
 
   return (
     <div className="container">
       <Header />
       <div className="image">
-        <img src={src} style={{ width: "400px", height: "400px" }} />
-        <div className="title">
-          <h1>{title}</h1>
-        </div>
+        <img src={src} style={{ width: "400px", height: "400px" }} alt="NFT" />
         <div>
-          <h3>{desc}</h3>
+          <div className="title">
+            <h1>Title: {title}</h1>
+          </div>
+          <div>
+            <h2>Description: </h2>
+            <h3>{desc}</h3>
+          </div>
+          {transfer ? (
+            <div
+              style={{
+                width: "130px",
+                height: "40px",
+                marginLeft: "40px",
+                backgroundColor: "orange",
+                borderRadius: "13px",
+                cursor: "pointer",
+              }}
+            >
+              <h1>Transfer</h1>
+            </div>
+          ) : null}
         </div>
       </div>
     </div>
