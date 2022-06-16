@@ -10,16 +10,19 @@
 
 .connect {
   width: 100%;
-  color: white;
-  background: teal;
+  color: black;
+  background: white;
+  height: 80px;
   padding: 0.5rem 0.5;
-  border: 1px solid teal;
+  /* border: 1px solid teal; */
   border-radius: 1rem;
   transition: all 0.1s linear;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
 }
 
 .connect:hover {
   transform: scale(1.2);
-
 }
-
