@@ -29,8 +29,6 @@ const ViewNFT = () => {
             setDesc(description);
           });
           if (owner === account[0]) {
-            console.log(owner);
-            console.log(account[0]);
             return true;
           }
         } catch (error) {
@@ -42,7 +40,6 @@ const ViewNFT = () => {
   }, []);
 
   const sendNFT = async () => {
-
     if (window.ethereum) {
       const web3 = new Web3(window.ethereum);
       try {
@@ -63,7 +60,6 @@ const ViewNFT = () => {
     }
   };
 
-
   const [title, setTitle] = useState("");
   const [desc, setDesc] = useState("");
   const [src, setSrc] = useState("");
@@ -71,7 +67,6 @@ const ViewNFT = () => {
 
   const [send, setSend] = useState(false);
   const [address, setAddress] = useState("");
-
 
   return (
     <div className="container">
@@ -83,7 +78,6 @@ const ViewNFT = () => {
           alt="NFT"
         />
         <div>
-
           <div style={{ width: "400px" }}>
             <div className="title">
               <h1>Title: {title}</h1>
@@ -129,20 +123,8 @@ const ViewNFT = () => {
                       onChange={(e) => setAddress(e.target.value)}
                     />
                   </div>
-                  <div className="send"
-                    style={{
-                      backgroundColor: "pink",
-                      width: "100px",
-                      height: "40px",
-                      marginLeft: "50px",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      borderRadius: "14px",
-                      cursor: "pointer",
-                      marginTop: "30px",
-                    }}
-
+                  <div
+                    className="send"
                     onClick={() =>
                       sendNFT().then((result) => {
                         if (result.status === true) {
@@ -157,9 +139,7 @@ const ViewNFT = () => {
                   </div>
                 </div>
               ) : null}
-              </div>
-
-            
+            </div>
           ) : null}
         </div>
       </div>
