@@ -5,7 +5,7 @@ import Pic from "./Pic";
 import GetAllNFT from "../Functions/GetAllNFT";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import FadeLoader from "react-spinners/FadeLoader";
 
 let allJson = [];
