@@ -76,6 +76,11 @@
   display: flex;
   justify-content: center;
 }
+.desc h1 {
+    font-size: 60px;
+    background:  linear-gradient(blueviolet,#006eff);
+    color: transparent;
+    -webkit-background-clip: text;}
 
 .pics {
   margin: 0 auto;
