@@ -2,7 +2,7 @@ import React from "react";
 import "./Pic.css";
 import { NavLink } from "react-router-dom";
 
-const Pic = ({ title, desc, src, idx }) => {
+const Pic = ({ src, idx }) => {
   return (
     <NavLink to={`/viewNFT/${idx}`}>
       <div className="pic" style={{ borderRadius: "14px", overflow: "hidden" }}>

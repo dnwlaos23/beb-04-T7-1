@@ -27,7 +27,7 @@ const MyPage = () => {
       .then(() => {
         setPics(myTokenList);
         myTokenList = [];
-        console.log("now loading")
+        console.log("now loading");
       })
       .then(() => setIsLoading(false));
   }, []);
@@ -87,16 +87,14 @@ const MyPage = () => {
       <h3>Collected</h3>
       {isLoading ? (
         <div className="loadingContainer">
-            <div className="loader"
-                  style={{
-                  transform: "translate(-50%, -50%)"
-                }}
-              >
-                <FadeLoader
-                  color="#C63DEE"
-                  radius={2}
-                />
-              </div>
+          <div
+            className="loader"
+            style={{
+              transform: "translate(-50%, -50%)",
+            }}
+          >
+            <FadeLoader color="#C63DEE" radius={2} />
+          </div>
         </div>
       ) : (
         <div className="pics">{list}</div>

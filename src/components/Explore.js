@@ -5,7 +5,7 @@ import Pic from "./Pic";
 import GetAllNFT from "../Functions/GetAllNFT";
 import axios from "axios";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faMagnifyingGlass, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { faSearch } from "@fortawesome/free-solid-svg-icons";
 import FadeLoader from "react-spinners/FadeLoader";
 
 let allJson = [];
@@ -52,8 +52,8 @@ const Explore = () => {
   return (
     <div className="container">
       <Header />
-      <div className="desc" >
-        <h1 >It's our Collection!</h1>
+      <div className="desc">
+        <h1>It's our Collection!</h1>
       </div>
       <div
         style={{
@@ -84,7 +84,7 @@ const Explore = () => {
           <div className="loadingContainer">
             {warning ? (
               <div style={{ width: "100vw", height: "40vh" }}>
-                <h1>소용 없습니다.</h1>
+                <h1 style={{ marginLeft: "55px" }}>소용 없습니다.</h1>
                 <FadeLoader color="#C63DEE" radius={2} />
               </div>
             ) : (
@@ -109,23 +109,26 @@ const Explore = () => {
             )}
           </div>
           <div className="contentWrap">
-            <div
-              style={{
-                width: "100px",
-                height: "60px",
-                backgroundColor: "pink",
-                alignItems: "center",
-                justifyContent: "center",
-                overflow: "hidden",
-                cursor: "pointer",
-                borderRadius: "25px",
-              }}
-              onClick={() => {
-                setWarning(true);
-              }}
-            >
-              <h2>가속화</h2>
-            </div>
+            {warning ? null : (
+              <div
+                style={{
+                  width: "100px",
+                  height: "60px",
+                  backgroundColor: "pink",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  overflow: "hidden",
+                  cursor: "pointer",
+                  borderRadius: "25px",
+                  marginLeft: "55px",
+                }}
+                onClick={() => {
+                  setWarning(true);
+                }}
+              >
+                <h2>가속화</h2>
+              </div>
+            )}
           </div>
         </div>
       ) : (
