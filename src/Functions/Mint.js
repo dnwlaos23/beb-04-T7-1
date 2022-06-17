@@ -2,7 +2,10 @@ import Web3 from "web3";
 import abi from "../components/abi";
 import ContractAddr from "../components/ContractAddr";
 
+
 const Mint = async (jsonUrl) => {
+
+  const pageUrl = 'http://localhost:3000/mypage'
   //   console.log(abi);
   if (window.ethereum) {
     // provider로 메타마스크 지정
@@ -22,6 +25,7 @@ const Mint = async (jsonUrl) => {
         gasPrice,
       });
       console.log(tx);
+      document.location.href = pageUrl;
     } catch (error) {
       console.log(error);
     }
